@@ -1,5 +1,6 @@
 #include "array.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 int main()
 {
@@ -20,4 +21,9 @@ int main()
 
   Array *odd_numbers = filter(list, &isOdd);
   display(odd_numbers);
+
+  int sum_of_numbers = reduce(list, 0, &sum);
+  printf("%d \n", sum_of_numbers);
+
+  return 0;
 }

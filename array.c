@@ -56,6 +56,23 @@ Array *filter(Array *src, Predicate predicate)
   return copy_of_filtered_array;
 }
 
+int sum(int a, int b)
+{
+  a = a + b;
+  return a;
+}
+
+int reduce(Array *src, int init, Reducer reducer)
+{
+  int reduced_value = init;
+  for (Index i = 0; i < src->length; i++)
+  {
+    reduced_value = (*reducer)(reduced_value, src->array[i]);
+  }
+
+  return reduced_value;
+}
+
 void display(Array *list)
 {
   for (Index i = 0; i < list->length; i++)
