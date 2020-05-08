@@ -34,16 +34,14 @@ Bool isOdd(int a)
 
 Array *filter(Array *src, Predicate predicate)
 {
-  Array *filtered_array = malloc(sizeof(Array));
-  filtered_array->length = src->length;
-  filtered_array->array = malloc(sizeof(int) * filtered_array->length);
+  int filtered_array[src->length];
   int count = 0;
 
   for (Index i = 0; i < src->length; i++)
   {
     if ((*predicate)(src->array[i]))
     {
-      filtered_array->array[count] = src->array[i];
+      filtered_array[count] = src->array[i];
       count++;
     }
   }
@@ -51,7 +49,7 @@ Array *filter(Array *src, Predicate predicate)
   Array *copy_of_filtered_array = malloc(sizeof(Array));
   copy_of_filtered_array->length = count;
   copy_of_filtered_array->array = malloc(sizeof(int) * count);
-  memcpy(copy_of_filtered_array->array, filtered_array->array, sizeof(int) * count);
+  memcpy(copy_of_filtered_array->array, filtered_array, sizeof(int) * count);
 
   return copy_of_filtered_array;
 }
