@@ -1,4 +1,5 @@
 #include "array.h"
+#include <stdio.h>
 #include <stdlib.h>
 
 int sqr(int a)
@@ -18,4 +19,13 @@ Array *map(Array *src, Mapper mapper)
   }
 
   return mapped_array;
+}
+
+void display(Array *list)
+{
+  for (Index i = 0; i < list->length; i++)
+  {
+    printf("%d ", list->array[i]);
+  }
+  printf("\n");
 }

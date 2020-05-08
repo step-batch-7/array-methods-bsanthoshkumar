@@ -1,15 +1,5 @@
 #include "array.h"
 #include <stdlib.h>
-#include <stdio.h>
-
-void display(Array *list)
-{
-  for (Index i = 0; i < list->length; i++)
-  {
-    printf("%d ", list->array[i]);
-  }
-  printf("\n");
-}
 
 int main()
 {
