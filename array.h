@@ -5,6 +5,7 @@ typedef enum
   False,
   True
 } Bool;
+typedef unsigned int Index;
 
 typedef int (*Mapper)(int);
 typedef Bool (*Predicate)(int);
@@ -15,6 +16,8 @@ typedef struct
   int *array;
   int length;
 } Array;
+
+int sqr(int);
 
 Array *map(Array *src, Mapper mapper);
 Array *filter(Array *src, Predicate predicate);
