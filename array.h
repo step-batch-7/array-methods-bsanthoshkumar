@@ -18,6 +18,8 @@ typedef struct
 } Array;
 
 int sqr(int);
+Bool isEven(int a);
+Bool isOdd(int a);
 
 Array *map(Array *src, Mapper mapper);
 Array *filter(Array *src, Predicate predicate);

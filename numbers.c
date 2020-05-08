@@ -14,4 +14,10 @@ int main()
 
   Array *sqr_of_numbers = map(list, &sqr);
   display(sqr_of_numbers);
+
+  Array *even_numbers = filter(list, &isEven);
+  display(even_numbers);
+
+  Array *odd_numbers = filter(list, &isOdd);
+  display(odd_numbers);
 }
