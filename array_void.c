@@ -8,7 +8,7 @@ ArrayVoid_ptr create_void_array(Object *arr, int length)
   ArrayVoid_ptr list = malloc(sizeof(ArrayVoid));
   list->length = length;
   list->array = malloc(sizeof(Object) * list->length);
-  memcpy(list->array, arr, sizeof(int) * length);
+  memcpy(list->array, arr, sizeof(Object) * length);
 
   return list;
 }
@@ -53,4 +53,18 @@ Object reduce_void(ArrayVoid_ptr src, Object init, ReducerVoid reducer)
   }
 
   return reduced_value;
+}
+
+void display_number(void *data)
+{
+  printf("%d ", *(int *)data);
+}
+
+void display_void(ArrayVoid_ptr list, DisplayData display)
+{
+  for (Index i = 0; i < list->length; i++)
+  {
+    display(list->array[i]);
+  }
+  printf("\n");
 }
