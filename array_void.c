@@ -16,3 +16,14 @@ ArrayVoid_ptr map_void(ArrayVoid_ptr src, MapperVoid mapper)
 
   return mapped_array;
 }
+
+Object reduce_void(ArrayVoid_ptr src, Object init, ReducerVoid reducer)
+{
+  Object reduced_value = init;
+  for (Index i = 0; i < src->length; i++)
+  {
+    reduced_value = (*reducer)(reduced_value, src->array[i]);
+  }
+
+  return reduced_value;
+}
