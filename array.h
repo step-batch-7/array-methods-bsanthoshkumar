@@ -24,9 +24,11 @@ Bool is_even(int);
 Bool is_odd(int);
 int sum(int, int);
 
+Array_ptr create_array(int *, int);
+
 Array_ptr map(Array_ptr src, Mapper mapper);
 Array_ptr filter(Array_ptr src, Predicate predicate);
 int reduce(Array_ptr src, int init, Reducer reducer);
 
-void display(Array_ptr );
+void display(Array_ptr);
 #endif

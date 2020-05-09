@@ -3,6 +3,16 @@
 #include <stdlib.h>
 #include <string.h>
 
+Array_ptr create_array(int *arr, int length)
+{
+  Array_ptr list = malloc(sizeof(Array));
+  list->length = length;
+  list->array = malloc(sizeof(int) * list->length);
+  memcpy(list->array, arr, sizeof(int) * length);
+
+  return list;
+}
+
 int sqr(int a)
 {
   return a * a;
@@ -46,12 +56,7 @@ Array_ptr filter(Array_ptr src, Predicate predicate)
     }
   }
 
-  Array_ptr copy_of_filtered_array = malloc(sizeof(Array));
-  copy_of_filtered_array->length = count;
-  copy_of_filtered_array->array = malloc(sizeof(int) * count);
-  memcpy(copy_of_filtered_array->array, filtered_array, sizeof(int) * count);
-
-  return copy_of_filtered_array;
+  return create_array(filtered_array, count);
 }
 
 int sum(int a, int b)

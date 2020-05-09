@@ -1,17 +1,12 @@
 #include "array.h"
+#include "array_void.h"
 #include <stdlib.h>
 #include <stdio.h>
 
 int main()
 {
-  Array_ptr list = malloc(sizeof(Array));
-  list->length = 5;
-  list->array = malloc(sizeof(int) * list->length);
-  list->array[0] = 1;
-  list->array[1] = 2;
-  list->array[2] = 3;
-  list->array[3] = 4;
-  list->array[4] = 5;
+  int arr[] = {1, 2, 3, 4, 5};
+  Array_ptr list = create_array(arr, 5);
 
   Array_ptr sqr_of_numbers = map(list, &sqr);
   display(sqr_of_numbers);
