@@ -3,6 +3,14 @@
 #include <stdlib.h>
 #include <string.h>
 
+Object int_sqr(void *data)
+{
+  int *number = (int *)data;
+  int *sqr_of_number = malloc(sizeof(int));
+  *sqr_of_number = (*number) * (*number);
+  return sqr_of_number;
+}
+
 ArrayVoid_ptr create_void_array(Object *arr, int length)
 {
   ArrayVoid_ptr list = malloc(sizeof(ArrayVoid));
@@ -42,6 +50,12 @@ ArrayVoid_ptr filter_void(ArrayVoid_ptr src, PredicateVoid predicate)
   }
 
   return create_void_array(filtered_array, count);
+}
+
+Object int_sum(void *a, void *b)
+{
+  *(int *)a = *(int *)a + *(int *)b;
+  return a;
 }
 
 Object reduce_void(ArrayVoid_ptr src, Object init, ReducerVoid reducer)

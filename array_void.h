@@ -17,6 +17,9 @@ typedef struct
 typedef ArrayVoid *ArrayVoid_ptr;
 typedef void (*DisplayData)(void *);
 
+Object int_sqr(void *data);
+Object int_sum(void *a, void *b);
+
 ArrayVoid_ptr create_void_array(Object *, int);
 
 ArrayVoid_ptr map_void(ArrayVoid_ptr src, MapperVoid mapper);
