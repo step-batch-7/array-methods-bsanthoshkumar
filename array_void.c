@@ -3,6 +3,16 @@
 #include <stdlib.h>
 #include <string.h>
 
+ArrayVoid_ptr create_void_array(Object *arr, int length)
+{
+  ArrayVoid_ptr list = malloc(sizeof(ArrayVoid));
+  list->length = length;
+  list->array = malloc(sizeof(Object) * list->length);
+  memcpy(list->array, arr, sizeof(int) * length);
+
+  return list;
+}
+
 ArrayVoid_ptr map_void(ArrayVoid_ptr src, MapperVoid mapper)
 {
   ArrayVoid_ptr mapped_array = malloc(sizeof(ArrayVoid));
@@ -15,6 +25,23 @@ ArrayVoid_ptr map_void(ArrayVoid_ptr src, MapperVoid mapper)
   }
 
   return mapped_array;
+}
+
+ArrayVoid_ptr filter_void(ArrayVoid_ptr src, PredicateVoid predicate)
+{
+  Object filtered_array[src->length];
+  int count = 0;
+
+  for (Index i = 0; i < src->length; i++)
+  {
+    if ((*predicate)(src->array[i]))
+    {
+      filtered_array[count] = src->array[i];
+      count++;
+    }
+  }
+
+  return create_void_array(filtered_array, count);
 }
 
 Object reduce_void(ArrayVoid_ptr src, Object init, ReducerVoid reducer)
