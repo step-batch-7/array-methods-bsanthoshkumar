@@ -17,14 +17,16 @@ typedef struct
   int length;
 } Array;
 
+typedef Array *Array_ptr;
+
 int sqr(int);
 Bool is_even(int);
 Bool is_odd(int);
 int sum(int, int);
 
-Array *map(Array *src, Mapper mapper);
-Array *filter(Array *src, Predicate predicate);
-int reduce(Array *src, int init, Reducer reducer);
+Array_ptr map(Array_ptr src, Mapper mapper);
+Array_ptr filter(Array_ptr src, Predicate predicate);
+int reduce(Array_ptr src, int init, Reducer reducer);
 
-void display(Array *);
+void display(Array_ptr );
 #endif

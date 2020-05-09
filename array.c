@@ -8,9 +8,9 @@ int sqr(int a)
   return a * a;
 }
 
-Array *map(Array *src, Mapper mapper)
+Array_ptr map(Array_ptr src, Mapper mapper)
 {
-  Array *mapped_array = malloc(sizeof(Array));
+  Array_ptr mapped_array = malloc(sizeof(Array));
   mapped_array->length = src->length;
   mapped_array->array = malloc(sizeof(int) * mapped_array->length);
 
@@ -32,7 +32,7 @@ Bool is_odd(int a)
   return !is_even(a);
 }
 
-Array *filter(Array *src, Predicate predicate)
+Array_ptr filter(Array_ptr src, Predicate predicate)
 {
   int filtered_array[src->length];
   int count = 0;
@@ -46,7 +46,7 @@ Array *filter(Array *src, Predicate predicate)
     }
   }
 
-  Array *copy_of_filtered_array = malloc(sizeof(Array));
+  Array_ptr copy_of_filtered_array = malloc(sizeof(Array));
   copy_of_filtered_array->length = count;
   copy_of_filtered_array->array = malloc(sizeof(int) * count);
   memcpy(copy_of_filtered_array->array, filtered_array, sizeof(int) * count);
@@ -60,7 +60,7 @@ int sum(int a, int b)
   return a;
 }
 
-int reduce(Array *src, int init, Reducer reducer)
+int reduce(Array_ptr src, int init, Reducer reducer)
 {
   int reduced_value = init;
   for (Index i = 0; i < src->length; i++)
@@ -71,7 +71,7 @@ int reduce(Array *src, int init, Reducer reducer)
   return reduced_value;
 }
 
-void display(Array *list)
+void display(Array_ptr list)
 {
   for (Index i = 0; i < list->length; i++)
   {
