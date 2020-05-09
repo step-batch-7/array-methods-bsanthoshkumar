@@ -22,14 +22,14 @@ Array *map(Array *src, Mapper mapper)
   return mapped_array;
 }
 
-Bool isEven(int a)
+Bool is_even(int a)
 {
   return a % 2 == 0;
 }
 
-Bool isOdd(int a)
+Bool is_odd(int a)
 {
-  return !isEven(a);
+  return !is_even(a);
 }
 
 Array *filter(Array *src, Predicate predicate)

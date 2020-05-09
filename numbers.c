@@ -16,10 +16,10 @@ int main()
   Array *sqr_of_numbers = map(list, &sqr);
   display(sqr_of_numbers);
 
-  Array *even_numbers = filter(list, &isEven);
+  Array *even_numbers = filter(list, &is_even);
   display(even_numbers);
 
-  Array *odd_numbers = filter(list, &isOdd);
+  Array *odd_numbers = filter(list, &is_odd);
   display(odd_numbers);
 
   int sum_of_numbers = reduce(list, 0, &sum);

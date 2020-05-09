@@ -18,8 +18,8 @@ typedef struct
 } Array;
 
 int sqr(int);
-Bool isEven(int);
-Bool isOdd(int);
+Bool is_even(int);
+Bool is_odd(int);
 int sum(int, int);
 
 Array *map(Array *src, Mapper mapper);
