@@ -5,7 +5,10 @@
 
 void perform_array_methods(Array_ptr list)
 {
-  printf("sqr of numbers in list:");
+  printf("numbers in a list: ");
+  display(list);
+
+  printf("sqr of numbers in list: ");
   Array_ptr sqr_of_numbers = map(list, &sqr);
   display(sqr_of_numbers);
 
@@ -23,6 +26,9 @@ void perform_array_methods(Array_ptr list)
 
 void perform_int_array_methods(ArrayVoid_ptr list)
 {
+  printf("numbers in a list: ");
+  display_void(list, &display_number);
+
   printf("sqr of numbers in list: ");
   ArrayVoid_ptr sqr_of_numbers = map_void(list, &Sqr);
   display_void(sqr_of_numbers, &display_number);
@@ -41,6 +47,15 @@ void perform_int_array_methods(ArrayVoid_ptr list)
   printf("sum of numbers in list is: %d \n\n", *(int *)sum_of_numbers);
 }
 
+void perform_char_array_methods(ArrayVoid_ptr list)
+{
+  printf("characters in a list: ");
+  display_void(list, &display_character);
+
+  printf("uppercase of all characters in list: ");
+  ArrayVoid_ptr upper_case_name = map_void(list, &to_uppercase);
+  display_void(upper_case_name, &display_character);
+}
 int main()
 {
   int array_1[] = {1, 2, 3, 4, 5};
@@ -73,7 +88,7 @@ int main()
   char ch5 = 'r';
   name[4] = &ch5;
   ArrayVoid_ptr list_3 = create_void_array(name, 5);
-  display_void(list_3, &display_character);
+  perform_char_array_methods(list_3);
 
   return 0;
 }

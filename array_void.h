@@ -18,6 +18,7 @@ typedef ArrayVoid *ArrayVoid_ptr;
 typedef void (*DisplayData)(Object);
 
 Object Sqr(Object data);
+Object to_uppercase(Object data);
 Bool is_Even(Object);
 Bool is_Odd(Object);
 Object Sum(Object a, Object b);

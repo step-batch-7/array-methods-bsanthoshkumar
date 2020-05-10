@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 ArrayVoid_ptr create_void_array(Object *arr, int length)
 {
@@ -19,6 +20,14 @@ Object Sqr(void *data)
   int *sqr_of_number = malloc(sizeof(int));
   *sqr_of_number = (*number) * (*number);
   return sqr_of_number;
+}
+
+Object to_uppercase(void *data)
+{
+  char *ch = (char *)data;
+  char *uppercase_char = malloc(sizeof(int));
+  *uppercase_char = toupper(*ch);
+  return uppercase_char;
 }
 
 ArrayVoid_ptr map_void(ArrayVoid_ptr src, MapperVoid mapper)
