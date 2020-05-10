@@ -29,5 +29,6 @@ ArrayVoid_ptr filter_void(ArrayVoid_ptr src, PredicateVoid predicate);
 Object reduce_void(ArrayVoid_ptr src, Object init, ReducerVoid reducer);
 
 void display_number(Object);
+void display_character(Object);
 void display_void(ArrayVoid_ptr, DisplayData);
 #endif

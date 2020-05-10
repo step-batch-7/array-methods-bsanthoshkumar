@@ -3,14 +3,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-Object Sqr(void *data)
-{
-  int *number = (int *)data;
-  int *sqr_of_number = malloc(sizeof(int));
-  *sqr_of_number = (*number) * (*number);
-  return sqr_of_number;
-}
-
 ArrayVoid_ptr create_void_array(Object *arr, int length)
 {
   ArrayVoid_ptr list = malloc(sizeof(ArrayVoid));
@@ -19,6 +11,14 @@ ArrayVoid_ptr create_void_array(Object *arr, int length)
   memcpy(list->array, arr, sizeof(Object) * length);
 
   return list;
+}
+
+Object Sqr(void *data)
+{
+  int *number = (int *)data;
+  int *sqr_of_number = malloc(sizeof(int));
+  *sqr_of_number = (*number) * (*number);
+  return sqr_of_number;
 }
 
 ArrayVoid_ptr map_void(ArrayVoid_ptr src, MapperVoid mapper)
@@ -83,6 +83,11 @@ Object reduce_void(ArrayVoid_ptr src, Object init, ReducerVoid reducer)
 void display_number(void *data)
 {
   printf("%d ", *(int *)data);
+}
+
+void display_character(void *data)
+{
+  printf("%c ", *(char *)data);
 }
 
 void display_void(ArrayVoid_ptr list, DisplayData display)

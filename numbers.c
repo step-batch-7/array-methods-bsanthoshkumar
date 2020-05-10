@@ -43,24 +43,37 @@ void perform_int_array_methods(ArrayVoid_ptr list)
 
 int main()
 {
-  int arr[] = {1, 2, 3, 4, 5};
-  Array_ptr list_1 = create_array(arr, 5);
+  int array_1[] = {1, 2, 3, 4, 5};
+  Array_ptr list_1 = create_array(array_1, 5);
   perform_array_methods(list_1);
 
-  Object array[5];
+  Object array_2[5];
   int a = 6;
-  array[0] = &a;
+  array_2[0] = &a;
   int b = 7;
-  array[1] = &b;
+  array_2[1] = &b;
   int c = 8;
-  array[2] = &c;
+  array_2[2] = &c;
   int d = 9;
-  array[3] = &d;
+  array_2[3] = &d;
   int e = 10;
-  array[4] = &e;
-
-  ArrayVoid_ptr list_2 = create_void_array(array, 5);
+  array_2[4] = &e;
+  ArrayVoid_ptr list_2 = create_void_array(array_2, 5);
   perform_int_array_methods(list_2);
+
+  Object name[5];
+  char ch1 = 'k';
+  name[0] = &ch1;
+  char ch2 = 'u';
+  name[1] = &ch2;
+  char ch3 = 'm';
+  name[2] = &ch3;
+  char ch4 = 'a';
+  name[3] = &ch4;
+  char ch5 = 'r';
+  name[4] = &ch5;
+  ArrayVoid_ptr list_3 = create_void_array(name, 5);
+  display_void(list_3, &display_character);
 
   return 0;
 }
