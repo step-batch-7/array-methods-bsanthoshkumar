@@ -5,15 +5,15 @@
 
 void perform_array_methods(Array_ptr list)
 {
-  printf("sqr_of_numbers in list:");
+  printf("sqr of numbers in list:");
   Array_ptr sqr_of_numbers = map(list, &sqr);
   display(sqr_of_numbers);
 
-  printf("even_numbers in list:");
+  printf("even numbers in list: ");
   Array_ptr even_numbers = filter(list, &is_even);
   display(even_numbers);
 
-  printf("odd_numbers in list:");
+  printf("odd numbers in list: ");
   Array_ptr odd_numbers = filter(list, &is_odd);
   display(odd_numbers);
 
@@ -21,16 +21,24 @@ void perform_array_methods(Array_ptr list)
   printf("sum of numbers in list is: %d \n\n", sum_of_numbers);
 }
 
-void perform_void_array_methods(ArrayVoid_ptr list)
+void perform_int_array_methods(ArrayVoid_ptr list)
 {
-  printf("sqr_of_numbers in list:");
-  ArrayVoid_ptr sqr_of_numbers = map_void(list, &int_sqr);
+  printf("sqr of numbers in list: ");
+  ArrayVoid_ptr sqr_of_numbers = map_void(list, &Sqr);
   display_void(sqr_of_numbers, &display_number);
+
+  printf("even numbers in list: ");
+  ArrayVoid_ptr even_numbers = filter_void(list, &is_Even);
+  display_void(even_numbers, &display_number);
+
+  printf("odd numbers in list: ");
+  ArrayVoid_ptr odd_numbers = filter_void(list, &is_Odd);
+  display_void(odd_numbers, &display_number);
 
   Object *init = malloc(sizeof(int));
   *init = 0;
-  Object sum_of_numbers = reduce_void(list, init, &int_sum);
-  printf("sum of numbers in list is: %d \n", *(int *)sum_of_numbers);
+  Object sum_of_numbers = reduce_void(list, init, &Sum);
+  printf("sum of numbers in list is: %d \n\n", *(int *)sum_of_numbers);
 }
 
 int main()
@@ -52,7 +60,7 @@ int main()
   array[4] = &e;
 
   ArrayVoid_ptr list_2 = create_void_array(array, 5);
-  perform_void_array_methods(list_2);
+  perform_int_array_methods(list_2);
 
   return 0;
 }

@@ -15,10 +15,12 @@ typedef struct
 } ArrayVoid;
 
 typedef ArrayVoid *ArrayVoid_ptr;
-typedef void (*DisplayData)(void *);
+typedef void (*DisplayData)(Object);
 
-Object int_sqr(void *data);
-Object int_sum(void *a, void *b);
+Object Sqr(Object data);
+Bool is_Even(Object);
+Bool is_Odd(Object);
+Object Sum(Object a, Object b);
 
 ArrayVoid_ptr create_void_array(Object *, int);
 
@@ -26,6 +28,6 @@ ArrayVoid_ptr map_void(ArrayVoid_ptr src, MapperVoid mapper);
 ArrayVoid_ptr filter_void(ArrayVoid_ptr src, PredicateVoid predicate);
 Object reduce_void(ArrayVoid_ptr src, Object init, ReducerVoid reducer);
 
-void display_number(void *);
+void display_number(Object);
 void display_void(ArrayVoid_ptr, DisplayData);
 #endif

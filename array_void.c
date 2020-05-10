@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-Object int_sqr(void *data)
+Object Sqr(void *data)
 {
   int *number = (int *)data;
   int *sqr_of_number = malloc(sizeof(int));
@@ -35,6 +35,17 @@ ArrayVoid_ptr map_void(ArrayVoid_ptr src, MapperVoid mapper)
   return mapped_array;
 }
 
+Bool is_Even(Object a)
+{
+  int *number = (int *)a;
+  return *number % 2 == 0;
+}
+
+Bool is_Odd(Object a)
+{
+  return !is_Even(a);
+}
+
 ArrayVoid_ptr filter_void(ArrayVoid_ptr src, PredicateVoid predicate)
 {
   Object filtered_array[src->length];
@@ -52,7 +63,7 @@ ArrayVoid_ptr filter_void(ArrayVoid_ptr src, PredicateVoid predicate)
   return create_void_array(filtered_array, count);
 }
 
-Object int_sum(void *a, void *b)
+Object Sum(void *a, void *b)
 {
   *(int *)a = *(int *)a + *(int *)b;
   return a;
