@@ -14,11 +14,11 @@ ArrayVoid_ptr create_void_array(Object *arr, int length)
   return list;
 }
 
-Object Sqr(void *data)
+Object increment(void *data)
 {
   int *number = (int *)data;
   int *sqr_of_number = malloc(sizeof(int));
-  *sqr_of_number = (*number) * (*number);
+  *sqr_of_number = (*number) + 1;
   return sqr_of_number;
 }
 
@@ -53,6 +53,23 @@ Bool is_Even(Object a)
 Bool is_Odd(Object a)
 {
   return !is_Even(a);
+}
+
+Bool is_vowel(Object a)
+{
+  char *ch = (char *)a;
+  Bool isA = *ch == 'a' || *ch == 'A';
+  Bool isE = *ch == 'e' || *ch == 'E';
+  Bool isI = *ch == 'i' || *ch == 'I';
+  Bool isO = *ch == 'o' || *ch == 'O';
+  Bool isU = *ch == 'u' || *ch == 'U';
+
+  return isA || isE || isI || isO || isU;
+}
+
+Bool is_consonant(Object a)
+{
+  return !is_vowel(a);
 }
 
 ArrayVoid_ptr filter_void(ArrayVoid_ptr src, PredicateVoid predicate)

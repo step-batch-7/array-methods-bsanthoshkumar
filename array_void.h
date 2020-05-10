@@ -17,10 +17,12 @@ typedef struct
 typedef ArrayVoid *ArrayVoid_ptr;
 typedef void (*DisplayData)(Object);
 
-Object Sqr(Object data);
+Object increment(Object data);
 Object to_uppercase(Object data);
 Bool is_Even(Object);
 Bool is_Odd(Object);
+Bool is_vowel(Object);
+Bool is_consonant(Object);
 Object Sum(Object a, Object b);
 
 ArrayVoid_ptr create_void_array(Object *, int);

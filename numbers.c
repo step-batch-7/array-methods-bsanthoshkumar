@@ -29,9 +29,9 @@ void perform_int_array_methods(ArrayVoid_ptr list)
   printf("numbers in a list: ");
   display_void(list, &display_number);
 
-  printf("sqr of numbers in list: ");
-  ArrayVoid_ptr sqr_of_numbers = map_void(list, &Sqr);
-  display_void(sqr_of_numbers, &display_number);
+  printf("increment of numbers by 1 in list: ");
+  ArrayVoid_ptr inc_of_numbers = map_void(list, &increment);
+  display_void(inc_of_numbers, &display_number);
 
   printf("even numbers in list: ");
   ArrayVoid_ptr even_numbers = filter_void(list, &is_Even);
@@ -55,6 +55,14 @@ void perform_char_array_methods(ArrayVoid_ptr list)
   printf("uppercase of all characters in list: ");
   ArrayVoid_ptr upper_case_name = map_void(list, &to_uppercase);
   display_void(upper_case_name, &display_character);
+
+  printf("vowels in a list: ");
+  ArrayVoid_ptr vowels = filter_void(list, &is_vowel);
+  display_void(vowels, &display_character);
+
+  printf("consonants in a list: ");
+  ArrayVoid_ptr consonants = filter_void(list, &is_consonant);
+  display_void(consonants, &display_character);
 }
 int main()
 {
